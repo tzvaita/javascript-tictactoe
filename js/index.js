@@ -27,8 +27,10 @@ function checkStatus(arr, player) {
     (arr[2] == arr[4] && arr[4] == arr[6])
   ) {
     resultElement.innerHTML = `${player} wins`;
+    document.querySelector(".result-popup").style.display = "flex";
   } else if (boxCount == 9) {
     resultElement.innerHTML = "Game Draw";
+    document.querySelector(".result-popup").style.display = "flex";
   } else {
     return "Error";
   }
@@ -74,6 +76,7 @@ function updatePlayers(p1, p2) {
 function startGame() {
   let contButton = document.getElementById("continue-btn");
   contButton.addEventListener("click", () => {
+    document.querySelector(".player-popup").style.display = "none";
     let firstPlayer = document.getElementById("firstPlayer").value || "Player1";
     let secondPlayer =
       document.getElementById("secondPlayer").value || "Player2";
@@ -90,4 +93,7 @@ startGame();
 let playAgain = document.getElementById("playAgain");
 playAgain.addEventListener("click", () => {
   resetGame();
+  document.querySelector(".result-popup").style.display = "none";
+  document.querySelector(".player-popup").style.display = "flex";
 });
+

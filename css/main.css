@@ -1,5 +1,5 @@
 body {
-  background-color: #112d4e;
+  background-color: #0F0326;
 }
 
 table {
@@ -7,10 +7,91 @@ table {
   border-collapse: collapse;
 }
 td {
-  width: 80px;
-  height: 80px;
-  font-size: 32px;
+  width: 120px;
+  height: 120px;
+  font-size: 64px;
   border: 1px solid white;
   text-align: center;
   color: whitesmoke;
+}
+
+.player-popup-content {
+  height: 330px;
+  width: 540px;
+  position: absolute;
+  top: 150px;
+  background-color: #74A4BC;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.player-popup {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  width: 115px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.continue-btn-cont {
+  margin-top: 15px;
+}
+
+.continue-btn {
+  background-color: #0F0326;
+  color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.game-name {
+  text-align: center;
+  color: white;
+  margin-bottom: 92px;
+}
+
+.result-popup {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-popup-cont {
+  height: 150px;
+  width: 540px;
+  position: absolute;
+  top: 210px;
+  background-color: #74A4BC;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#gameResult {
+  text-align: center;
+  font-size: 32px;
 }
