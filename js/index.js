@@ -6,11 +6,13 @@ let gameBoard = {
 
 let resultElement = document.getElementById("gameResult");
 const originTable = document.getElementById("board").innerHTML;
-const originalBoard = Object.assign({}, gameBoard);
 
 function resetGame() {
   boxCount = 0;
-  gameBoard = originalBoard;
+  gameBoard = {
+    Player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  };
   resultElement.innerHTML = "";
   document.getElementById("board").innerHTML = originTable;
 }
@@ -42,9 +44,8 @@ function markElement(el, p) {
   el.innerHTML = mark;
   gameBoard[p][el.id - 1] = mark;
   mark == "X" ? (mark = "O") : (mark = "X");
-  console.log(`${p} played ${mark} at ${el.id}`);
-  console.log(gameBoard);
   checkStatus(gameBoard[p], p);
+  console.log(gameBoard);
 }
 
 function displayController(p1, p2) {
@@ -59,7 +60,6 @@ function displayController(p1, p2) {
         let el = document.getElementById(box);
         markElement(el, player);
         player == p1 ? (player = p2) : (player = p1);
-        console.log(`box:${box}`);
       },
       { once: true }
     );
@@ -84,7 +84,6 @@ function startGame() {
       updatePlayers(firstPlayer, secondPlayer);
     }
     displayController(firstPlayer, secondPlayer);
-    console.log(gameBoard);
   });
 }
 
