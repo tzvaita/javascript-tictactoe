@@ -4,6 +4,17 @@ let gameBoard = {
   Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 };
 
+let resultElement = document.getElementById("gameResult");
+const originTable = document.getElementById("board").innerHTML;
+const originalBoard = Object.assign({}, gameBoard);
+
+function resetGame() {
+  boxCount = 0;
+  gameBoard = originalBoard;
+  resultElement.innerHTML = "";
+  document.getElementById("board").innerHTML = originTable;
+}
+
 function checkStatus(arr, player) {
   if (
     (arr[0] == arr[1] && arr[1] == arr[2]) ||
@@ -15,15 +26,9 @@ function checkStatus(arr, player) {
     (arr[0] == arr[4] && arr[4] == arr[8]) ||
     (arr[2] == arr[4] && arr[4] == arr[6])
   ) {
-    console.log(`${player} wins`);
-    setTimeout(() => {
-      alert(`${player} wins`);
-    }, 500);
+    resultElement.innerHTML = `${player} wins`;
   } else if (boxCount == 9) {
-    console.log("Game Draw");
-    setTimeout(() => {
-      alert("Game Draw");
-    }, 500);
+    resultElement.innerHTML = "Game Draw";
   } else {
     return "Error";
   }
@@ -42,17 +47,21 @@ function markElement(el, p) {
 
 function displayController(p1, p2) {
   let player = p1;
-  let boxes = [1,2,3,4,5,6,7,8,9];
-  boxes.map(i => {
+  let boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  boxes.map((i) => {
     let target = document.getElementById(i);
-    target.addEventListener("click", (e) => {
-      let box = e.target.id;
-      let el = document.getElementById(box);
-      markElement(el, player);
-      player == p1 ? (player = p2) : (player = p1);
-      console.log(`box:${box}`);
-    },{once:true});
-  })
+    target.addEventListener(
+      "click",
+      (e) => {
+        let box = e.target.id;
+        let el = document.getElementById(box);
+        markElement(el, player);
+        player == p1 ? (player = p2) : (player = p1);
+        console.log(`box:${box}`);
+      },
+      { once: true }
+    );
+  });
 }
 
 function updatePlayers(p1, p2) {
@@ -77,3 +86,8 @@ function startGame() {
 }
 
 startGame();
+
+let playAgain = document.getElementById("playAgain");
+playAgain.addEventListener("click", () => {
+  resetGame();
+});
