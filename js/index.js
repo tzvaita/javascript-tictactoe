@@ -1,16 +1,8 @@
-let firstPlayer = document.getElementById("firstPlayer");
-let secondPlayer = document.getElementById("secondPlayer");
-let boxCount = 0;
 
 let gameBoard = {
   player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 };
-
-function players(player1, player2) {
-  this.player1 = player1 || "Player1";
-  this.player2 = player2 || "Player2";
-}
 
 const winStatus = (arr, player) => {
   if (
@@ -32,21 +24,32 @@ const winStatus = (arr, player) => {
 };
 
 let mark = "X";
-function markElement(el){
+function markElement(el,p) {
   el.innerHTML = mark;
-  mark == "X" ? mark = "O" : mark = "X";
+  mark == "X" ? (mark = "O") : (mark = "X");
+  console.log (`${p} played ${mark} at ${el.id}`)
 }
 
-
-function displayController() {
+function displayController(p1, p2) {
   let table = document.getElementById("board");
-  let mark = "O";
+  let player = p1;
   table.addEventListener("click", (e) => {
-    boxCount++;
     let box = e.target.id;
     let el = document.getElementById(box);
-      markElement(el);
+    markElement(el, player);
+    player == p1 ? (player = p2) : (player = p1);
+    console.log(`box:${box}`);
   });
 }
 
-displayController();
+function startGame() {
+  let contButton = document.getElementById("continue-btn");
+  contButton.addEventListener("click", () => {
+    let firstPlayer = document.getElementById("firstPlayer").value || "Player1";
+    let secondPlayer =
+      document.getElementById("secondPlayer").value || "Player2";
+    displayController(firstPlayer,secondPlayer);
+  });  
+}
+
+startGame();
