@@ -4,25 +4,29 @@ let gameBoard = {
   Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 };
 
-const checkStatus = (arr, player) => {
+function checkStatus(arr, player){
   if (
-    (arr[0] == arr[1]) == arr[2] ||
-    (arr[3] == arr[4]) == arr[5] ||
-    (arr[6] == arr[7]) == arr[8] ||
-    (arr[0] == arr[3]) == arr[6] ||
-    (arr[1] == arr[4]) == arr[7] ||
-    (arr[2] == arr[5]) == arr[8] ||
-    (arr[0] == arr[4]) == arr[8] ||
-    (arr[2] == arr[4]) == arr[6]
+    (arr[0] == arr[1] && arr[1] == arr[2]) ||
+    (arr[3] == arr[4] && arr[4] == arr[5]) ||
+    (arr[6] == arr[7] && arr[7] == arr[8]) ||
+    (arr[0] == arr[3] && arr[3] == arr[6]) ||
+    (arr[1] == arr[4] && arr[4] == arr[7]) ||
+    (arr[2] == arr[5] && arr[5] == arr[8]) ||
+    (arr[0] == arr[4] && arr[4] == arr[8]) ||
+    (arr[2] == arr[4] && arr[4] == arr[6])
   ) {
-    alert(`${player} wins`);
+    
     console.log(`${player} wins`);
+    setTimeout(()=>{
+      alert(`${player} wins`);
+    },500)
+    
   }
   else if (boxCount==9) {
     console.log("Game Draw");
     setTimeout(()=>{
       alert("Game Draw");
-    },1000)
+    },500)
   }
   else {
     return "Error";
