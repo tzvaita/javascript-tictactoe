@@ -19,33 +19,32 @@ function resetGame() {
 
 function checkStatus(arr, player) {
   if (
-    (arr[0] == arr[1] && arr[1] == arr[2])
-    || (arr[3] == arr[4] && arr[4] == arr[5])
-    || (arr[6] == arr[7] && arr[7] == arr[8])
-    || (arr[0] == arr[3] && arr[3] == arr[6])
-    || (arr[1] == arr[4] && arr[4] == arr[7])
-    || (arr[2] == arr[5] && arr[5] == arr[8])
-    || (arr[0] == arr[4] && arr[4] == arr[8])
-    || (arr[2] == arr[4] && arr[4] == arr[6])
+    (arr[0] === arr[1] && arr[1] === arr[2])
+    || (arr[3] === arr[4] && arr[4] === arr[5])
+    || (arr[6] === arr[7] && arr[7] === arr[8])
+    || (arr[0] === arr[3] && arr[3] === arr[6])
+    || (arr[1] === arr[4] && arr[4] === arr[7])
+    || (arr[2] === arr[5] && arr[5] === arr[8])
+    || (arr[0] === arr[4] && arr[4] === arr[8])
+    || (arr[2] === arr[4] && arr[4] === arr[6])
   ) {
     resultElement.innerHTML = `${player} wins`;
     document.querySelector('.result-popup').style.display = 'flex';
-  } else if (boxCount == 9) {
+  } else if (boxCount === 9) {
     resultElement.innerHTML = 'Game Draw';
     document.querySelector('.result-popup').style.display = 'flex';
-  } else {
-    return 'Error';
   }
+
+  return null;
 }
 
 let mark = 'X';
 function markElement(el, p) {
-  boxCount++;
+  boxCount += 1;
   el.innerHTML = mark;
   gameBoard[p][el.id - 1] = mark;
-  mark == 'X' ? (mark = 'O') : (mark = 'X');
+  mark = mark === 'X' ? 'O' : 'X';
   checkStatus(gameBoard[p], p);
-  console.log(gameBoard);
 }
 
 function displayController(p1, p2) {
@@ -53,13 +52,13 @@ function displayController(p1, p2) {
   const boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   boxes.map((i) => {
     const target = document.getElementById(i);
-    target.addEventListener(
+    return target.addEventListener(
       'click',
       (e) => {
         const box = e.target.id;
         const el = document.getElementById(box);
         markElement(el, player);
-        player == p1 ? (player = p2) : (player = p1);
+        player = player === p1 ? p2 : p1;
       },
       { once: true },
     );
@@ -79,7 +78,7 @@ function startGame() {
     document.querySelector('.player-popup').style.display = 'none';
     const firstPlayer = document.getElementById('firstPlayer').value || 'Player1';
     const secondPlayer = document.getElementById('secondPlayer').value || 'Player2';
-    if (firstPlayer != 'Player1' || secondPlayer != 'Player2') {
+    if (firstPlayer !== 'Player1' || secondPlayer !== 'Player2') {
       updatePlayers(firstPlayer, secondPlayer);
     }
     displayController(firstPlayer, secondPlayer);

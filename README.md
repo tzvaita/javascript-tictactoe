@@ -1,8 +1,8 @@
 # Tic-tac-toe - An in browser game(no backend)
+
 >Built the tic-tac-toe game with Javascript CSS and HTML.
 
-
-![Start page](tictactoe.png)
+![Start page](./tictactoe.png)
 
 ## Table of Contents
 
@@ -65,6 +65,7 @@ Open `index.html` file in your browser.
 - Linkedin: [Linkedin](https://linkedin.com/in/ramesh-naidu)
 
 👤 **Tennyson Zvaita**
+
 - Github: [@tzvaita](https://github.com/tzvaita)
 - Twitter: [@tennyzvaita](https://twitter.com/tennyzvaita)
 
