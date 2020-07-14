@@ -1,15 +1,15 @@
+/* eslint-disable no-undef */
 let boxCount = 0;
 let gameBoard = {
   Player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
 };
 let mark = 'X';
-
-const resultElement = document.getElementById('gameResult');
 const originTable = document.getElementById('board').innerHTML;
 
 const game = (() => {
   const checkStatus = (arr, player) => {
+    let result = null;
     if (
       (arr[0] === arr[1] && arr[1] === arr[2])
       || (arr[3] === arr[4] && arr[4] === arr[5])
@@ -20,11 +20,11 @@ const game = (() => {
       || (arr[0] === arr[4] && arr[4] === arr[8])
       || (arr[2] === arr[4] && arr[4] === arr[6])
     ) {
-      resultElement.innerHTML = `${player} wins`;
-      document.querySelector('.result-popup').style.display = 'flex';
+      result = `${player} wins`;
+      DOM.showResult(result);
     } else if (boxCount === 9) {
-      resultElement.innerHTML = 'Game Draw';
-      document.querySelector('.result-popup').style.display = 'flex';
+      result = 'Game Draw';
+      DOM.showResult(result);
     }
     return null;
   };
@@ -35,24 +35,6 @@ const game = (() => {
     gameBoard[p][el.id - 1] = mark;
     mark = mark === 'X' ? 'O' : 'X';
     checkStatus(gameBoard[p], p);
-  };
-
-  const displayController = (p1, p2) => {
-    let player = p1;
-    const boxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    boxes.map((i) => {
-      const target = document.getElementById(i);
-      return target.addEventListener(
-        'click',
-        (e) => {
-          const box = e.target.id;
-          const el = document.getElementById(box);
-          markElement(el, player);
-          player = player === p1 ? p2 : p1;
-        },
-        { once: true },
-      );
-    });
   };
 
   const updatePlayers = (p1, p2) => {
@@ -71,7 +53,7 @@ const game = (() => {
       if (firstPlayer !== 'Player1' || secondPlayer !== 'Player2') {
         updatePlayers(firstPlayer, secondPlayer);
       }
-      displayController(firstPlayer, secondPlayer);
+      DOM.displayController(firstPlayer, secondPlayer);
     });
   };
 
@@ -85,14 +67,7 @@ const game = (() => {
     document.getElementById('board').innerHTML = originTable;
   };
 
-  return { startGame, resetGame };
+  return { startGame, markElement, resetGame };
 })();
 
 game.startGame();
-
-const playAgain = document.getElementById('playAgain');
-playAgain.addEventListener('click', () => {
-  game.resetGame();
-  document.querySelector('.result-popup').style.display = 'none';
-  document.querySelector('.player-popup').style.display = 'flex';
-});
