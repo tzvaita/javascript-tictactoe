@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+  <!-- Create box for new players -->
+  <div class="player-popup">
+    <div class="player-popup-content">
+      <div class="start-message">
+        <h1>Welcome to Tic-Tac-Toe</h1>
+        <h3>Enter your names</h3>
+        <h4>(Leave blank for default player names.)</h4>
+      </div>
+
+      <!-- Create players-->
+      <div class="players">
+        <div class="player-one">
+          <input type="text" id="firstPlayer" placeholder="Player 1">
+        </div>
+        <div class="player-two">
+          <input type="text" id="secondPlayer" placeholder="Player 2">
+        </div>
+      </div>
+      <div class="continue-btn-cont">
+        <button class="continue-btn" id="continue-btn">Continue</button>
+      </div>
+    </div>
+</div>
+
+  <!-- Game Table -->
+  <div>
+    <h1 class="game-name">Tic-Tac-Toe</h1>
+  <table id="board">
+    <tr>
+      <td id="1"></td>
+      <td id="2"></td>
+      <td id="3"></td>
+    </tr>
+    <tr>
+      <td id="4"></td>
+      <td id="5"></td>
+      <td id="6"></td>
+    </tr>
+    <tr>
+      <td id="7"></td>
+      <td id="8"></td>
+      <td id="9"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Reset Box -->
+<div class="result-popup">
+  <div class="result-popup-cont">
+    <h1 id="gameResult"></h1>
+    <button class="continue-btn" id="playAgain">Play Again</button>
+</div>
+</div>
+
+<script src="./js/index.js"></script>
+<script src="./js/view.js"></script>
+</body>
+</html>
