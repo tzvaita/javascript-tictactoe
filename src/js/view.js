@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+import game from './index';
+import '../css/main.css';
 
 const resultElement = document.getElementById('gameResult');
 
