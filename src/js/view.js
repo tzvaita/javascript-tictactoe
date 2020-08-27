@@ -39,3 +39,5 @@ playAgain.addEventListener('click', () => {
   document.querySelector('.result-popup').style.display = 'none';
   document.querySelector('.player-popup').style.display = 'flex';
 });
+
+export default DOM;
