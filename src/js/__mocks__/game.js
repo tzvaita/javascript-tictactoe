@@ -1,7 +1,7 @@
 // eslint-disable
 
 const game = (() => {
-  const checkStatus = (arr, player,boxCount=9) => {
+  const checkStatus = (arr, player, boxCount = 9) => {
     let result = null;
     if (
       (arr[0] === arr[1] && arr[1] === arr[2])
@@ -31,12 +31,12 @@ const game = (() => {
     return gameBoard;
   };
 
-  const resetGame = () => {
-    boxCount = 0;
+  const resetGame = (gameBoard) => {
     gameBoard = {
       Player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     };
+    return gameBoard;
   };
 
   return { checkStatus, updatePlayers, resetGame };
