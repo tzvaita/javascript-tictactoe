@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-cycle
 import game from './index';
 import '../css/main.css';
 
