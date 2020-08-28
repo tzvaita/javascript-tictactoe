@@ -1,4 +1,6 @@
-/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-cycle
+import game from './index';
+import '../css/main.css';
 
 const resultElement = document.getElementById('gameResult');
 
@@ -39,3 +41,5 @@ playAgain.addEventListener('click', () => {
   document.querySelector('.result-popup').style.display = 'none';
   document.querySelector('.player-popup').style.display = 'flex';
 });
+
+export default DOM;

@@ -1,0 +1,44 @@
+{
+  "name": "javascript-tictactoe",
+  "version": "1.0.0",
+  "description": ">Built the tic-tac-toe game with Javascript CSS and HTML.",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "css-loader": "^4.2.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.4.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "development": "webpack --mode=development",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzvaita/javascript-tictactoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzvaita/javascript-tictactoe/issues"
+  },
+  "homepage": "https://github.com/tzvaita/javascript-tictactoe#readme"
+}

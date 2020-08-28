@@ -1,4 +1,6 @@
-/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-cycle
+import DOM from './view';
+
 let boxCount = 0;
 let gameBoard = {
   Player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -63,7 +65,7 @@ const game = (() => {
       Player1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       Player2: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     };
-    resultElement.innerHTML = '';
+    // resultElement.innerHTML = '';
     document.getElementById('board').innerHTML = originTable;
   };
 
@@ -71,3 +73,5 @@ const game = (() => {
 })();
 
 game.startGame();
+
+export default game;
