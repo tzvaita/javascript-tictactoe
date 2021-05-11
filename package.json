@@ -4,7 +4,7 @@
   "description": ">Built the tic-tac-toe game with Javascript CSS and HTML.",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
